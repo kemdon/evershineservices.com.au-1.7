@@ -23,7 +23,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/services/cleaning"
+                  href="/cleaning"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   清洁服务
@@ -31,7 +31,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/handyman"
+                  href="/handyman"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   手艺人服务
@@ -39,7 +39,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/gardening"
+                  href="/gardening"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   园艺服务

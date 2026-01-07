@@ -27,19 +27,19 @@ export default function Navbar() {
               首页
             </Link>
             <Link
-              href="/services/cleaning"
+              href="/cleaning"
               className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               清洁服务
             </Link>
             <Link
-              href="/services/handyman"
+              href="/handyman"
               className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               手艺人服务
             </Link>
             <Link
-              href="/services/gardening"
+              href="/gardening"
               className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               园艺服务
@@ -113,21 +113,21 @@ export default function Navbar() {
               首页
             </Link>
             <Link
-              href="/services/cleaning"
+              href="/cleaning"
               className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
               清洁服务
             </Link>
             <Link
-              href="/services/handyman"
+              href="/handyman"
               className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
               手艺人服务
             </Link>
             <Link
-              href="/services/gardening"
+              href="/gardening"
               className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
