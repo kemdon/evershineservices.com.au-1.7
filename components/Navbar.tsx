@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-primary-600">
+              <span className="text-2xl font-bold text-blue-600">
                 Evershine Services
               </span>
             </Link>
@@ -22,39 +22,45 @@ export default function Navbar() {
           <div className="hidden md:flex md:items-center md:space-x-8">
             <Link
               href="/"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              首页
-            </Link>
-            <Link
-              href="/cleaning"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              清洁服务
-            </Link>
-            <Link
-              href="/handyman"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              手艺人服务
-            </Link>
-            <Link
-              href="/gardening"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              园艺服务
+              Home
             </Link>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              关于我们
+              Why Us
+            </Link>
+            <Link
+              href="/cleaning"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Cleaning
+            </Link>
+            <Link
+              href="/handyman"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Handyman
+            </Link>
+            <Link
+              href="/gardening"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Gardening
             </Link>
             <Link
               href="/posts"
-              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              博客
+              Blog
+            </Link>
+            <Link
+              href="/about"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              Contact Us
             </Link>
           </div>
 
@@ -62,7 +68,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <span className="sr-only">Open main menu</span>
               {!isOpen ? (
@@ -107,45 +113,52 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
-              首页
-            </Link>
-            <Link
-              href="/cleaning"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              清洁服务
-            </Link>
-            <Link
-              href="/handyman"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              手艺人服务
-            </Link>
-            <Link
-              href="/gardening"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              园艺服务
+              Home
             </Link>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
-              关于我们
+              Why Us
+            </Link>
+            <Link
+              href="/cleaning"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Cleaning
+            </Link>
+            <Link
+              href="/handyman"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Handyman
+            </Link>
+            <Link
+              href="/gardening"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Gardening
             </Link>
             <Link
               href="/posts"
-              className="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
               onClick={() => setIsOpen(false)}
             >
-              博客
+              Blog
+            </Link>
+            <Link
+              href="/about"
+              className="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact Us
             </Link>
           </div>
         </div>

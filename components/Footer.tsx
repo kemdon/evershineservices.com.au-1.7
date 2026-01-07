@@ -9,24 +9,31 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">Evershine Services</h3>
             <p className="text-gray-400 mb-4">
-              阿德莱德最值得信赖的房产服务提供商。超过10年的专业经验，
-              为您提供优质的清洁、手艺人和园艺服务。
+              Adelaide's most trusted property services provider. With over 10 years of professional experience,
+              we offer quality cleaning, handyman, and gardening services.
+            </p>
+            <p className="text-gray-400 mb-4">
+              <strong>Address:</strong><br />
+              239A Wright Street, Adelaide SA 5000
             </p>
             <p className="text-gray-400">
-              服务地区：南澳大利亚阿德莱德及周边地区
+              <strong>Phone:</strong>{' '}
+              <a href="tel:1300525598" className="text-blue-400 hover:text-blue-300 transition-colors">
+                1300 525 598
+              </a>
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">我们的服务</h4>
+            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/cleaning"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  清洁服务
+                  Cleaning Services
                 </Link>
               </li>
               <li>
@@ -34,7 +41,7 @@ export default function Footer() {
                   href="/handyman"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  手艺人服务
+                  Handyman Services
                 </Link>
               </li>
               <li>
@@ -42,7 +49,7 @@ export default function Footer() {
                   href="/gardening"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  园艺服务
+                  Gardening Services
                 </Link>
               </li>
             </ul>
@@ -50,14 +57,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">快速链接</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  首页
+                  Home
                 </Link>
               </li>
               <li>
@@ -65,7 +72,7 @@ export default function Footer() {
                   href="/about"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  关于我们
+                  Why Us
                 </Link>
               </li>
               <li>
@@ -73,8 +80,28 @@ export default function Footer() {
                   href="/posts"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  博客
+                  Blog
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/EvershineServicesADL/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/evershineservicesadl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Instagram
+                </a>
               </li>
             </ul>
           </div>

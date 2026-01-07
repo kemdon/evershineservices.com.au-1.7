@@ -13,7 +13,6 @@ interface ClientPageProps {
 }
 
 export default function ClientPage(props: ClientPageProps) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
@@ -22,11 +21,9 @@ export default function ClientPage(props: ClientPageProps) {
 
   const content = data.page.body;
   const buttonLabels = new Set([
-    "返回首页",
-    "查看服务",
-    "了解更多",
-    "立即联系我们",
-    "获取免费报价",
+    "Learn More",
+    "Contact Us Today",
+    "See Our Process",
   ]);
 
   const getText = (children: any): string => {
@@ -39,89 +36,104 @@ export default function ClientPage(props: ClientPageProps) {
     return "";
   };
 
-  // Define custom components for markdown elements
   const components = {
-    // Render h1 with hero styling if it's the first heading
+    // Hero H1
     h1: (props: any) => {
       const { children } = props;
       const text = typeof children === "string" ? children : children?.[0];
-      const heroMap: Record<string, { gradient: string; icon?: string }> = {
-        "专业清洁服务": { gradient: "from-blue-500 to-blue-700", icon: "🧹" },
-        "专业园艺服务": { gradient: "from-green-500 to-green-700", icon: "🌿" },
-        "专业手艺人服务": { gradient: "from-orange-500 to-orange-700", icon: "🔧" },
-        "关于 Evershine Services": { gradient: "from-primary-600 to-primary-800" },
-      };
-      if (text === '欢迎来到 Evershine Services') {
+
+      if (text === "Welcome to Evershine Services") {
         return (
-          <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white rounded-xl p-12 mb-8 -mt-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">{children}</h1>
-          </div>
-        );
-      }
-      if (text && heroMap[text]) {
-        const hero = heroMap[text];
-        return (
-          <div className={`bg-gradient-to-r ${hero.gradient} text-white rounded-xl p-10 mb-8 -mt-2`}>
-            {hero.icon ? (
-              <div className="text-5xl mb-4 text-center">{hero.icon}</div>
-            ) : null}
-            <h1 className="text-3xl md:text-4xl font-bold text-center">{children}</h1>
-          </div>
+          <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white overflow-hidden -mt-4 pt-8 pb-16 mb-8">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }}></div>
+            </div>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+              <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 leading-tight">
+                {children}
+              </h1>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0">
+              <svg className="w-full h-12 text-white fill-current" preserveAspectRatio="none" viewBox="0 0 1440 54">
+                <path d="M0,22L60,21.3C120,21,240,19,360,18.7C480,18,600,19,720,21.3C840,24,960,27,1080,28C1200,29,1320,27,1380,26L1440,25L1440,54L1380,54C1320,54,1200,54,1080,54C960,54,840,54,720,54C600,54,480,54,360,54C240,54,120,54,60,54L0,54Z"></path>
+              </svg>
+            </div>
+          </section>
         );
       }
       return <h1 className="text-4xl font-bold text-gray-900 mb-6">{children}</h1>;
     },
-    // Render h2
+
+    // H2 Section Headers
     h2: (props: any) => {
       const { children } = props;
-      const text = typeof children === 'string' ? children : children?.[0];
-      const isServicesSection = text === '我们的专业服务';
-      const isTestimonials = text === '客户评价';
-      const isPartners = text === '我们的合作伙伴';
-      const isWhyUs = text === '为什么选择 Evershine？';
-      const isAdelaideService = text === '阿德莱德最专业的房产服务';
+      const text = typeof children === "string" ? children : children?.[0];
 
-      if (isServicesSection || isTestimonials || isPartners || isWhyUs) {
+      if (text === "Cleaning | Handyman | Gardening") {
         return (
-          <div className={`py-16 ${isWhyUs ? 'bg-gray-50' : ''}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{children}</h2>
-                {isTestimonials && <p className="text-xl text-gray-600">听听我们的客户怎么说</p>}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-lg md:text-xl text-blue-100">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🧹</span>
+                <span className="font-semibold">Cleaning</span>
+              </div>
+              <span className="text-yellow-300">|</span>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🔧</span>
+                <span className="font-semibold">Handyman</span>
+              </div>
+              <span className="text-yellow-300">|</span>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">🌿</span>
+                <span className="font-semibold">Gardening</span>
               </div>
             </div>
+            <p className="text-xl text-blue-100 text-center mt-6 max-w-4xl mx-auto">
+              Adelaide's trusted property services provider with over 10 years of professional experience. We are committed to providing the best service to make your property shine.
+            </p>
           </div>
         );
       }
-      if (isAdelaideService) {
+
+      if (["Evershine Services Provides", "Our Stats", "What Our Clients Say", "Let's See Our Famous Clients", "About Us", "Get In Touch"].includes(text)) {
         return (
-          <div className="py-8 bg-white">
+          <div className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">{children}</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">{children}</h2>
             </div>
           </div>
         );
       }
+
       return <h2 className="text-3xl font-bold text-gray-900 mb-4">{children}</h2>;
     },
-    // Render h3
+
+    // H3 Service Cards
     h3: (props: any) => {
       const { children } = props;
-      const text = typeof children === 'string' ? children : children?.[0];
+      const text = typeof children === "string" ? children : children?.[0];
 
-      // Check if it's a service title
-      if (text?.includes('清洁服务') || text?.includes('手艺人服务') || text?.includes('园艺服务')) {
+      // Service titles
+      if (["Cleaning", "Handyman", "Gardening"].includes(text)) {
+        const icons = { "Cleaning": "🧹", "Handyman": "🔧", "Gardening": "🌿" };
+        const colors = {
+          "Cleaning": "from-blue-500 to-blue-600",
+          "Handyman": "from-orange-500 to-orange-600",
+          "Gardening": "from-green-500 to-green-600"
+        };
+
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 border-t-4 border-primary-500">
-                <div className="flex items-center gap-4">
-                  <div className="text-5xl">
-                    {text?.includes('清洁') && '🧹'}
-                    {text?.includes('手艺人') && '🔧'}
-                    {text?.includes('园艺') && '🌿'}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-transparent transform hover:-translate-y-1">
+              <div className={`h-2 bg-gradient-to-r ${colors[text as keyof typeof colors]}`}></div>
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${colors[text as keyof typeof colors]} text-4xl`}>
+                    {icons[text as keyof typeof icons]}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{children}</h3>
+                  <h3 className="text-3xl font-bold text-gray-900">{children}</h3>
                 </div>
               </div>
             </div>
@@ -129,165 +141,179 @@ export default function ClientPage(props: ClientPageProps) {
         );
       }
 
-      // Check if it's a testimonial author
-      if (text?.includes('D. Johnson') || text?.includes('David K') || text?.includes('Scott O') || text?.includes('Damian') || text?.includes('匿名客户')) {
-        return <h3 className="text-lg font-semibold text-primary-600 mt-4">{children}</h3>;
+      // Contact info headers
+      if (["📍 Address", "📞 Phone", "📧 Email", "🕐 Business Hours"].includes(text?.substring(0, 20))) {
+        return <h3 className="text-xl font-bold text-gray-900 mb-2">{children}</h3>;
+      }
+
+      // Testimonial authors
+      if (text?.includes("D. Johnson") || text?.includes("David K") || text?.includes("Scott O") || text?.includes("Damian") || text?.includes("Peter M.")) {
+        return <h3 className="text-lg font-semibold text-blue-600 mt-4">{children}</h3>;
       }
 
       return <h3 className="text-2xl font-bold text-gray-900 mb-4">{children}</h3>;
     },
-    // Render paragraphs
+
+    // Paragraphs
     p: (props: any) => {
       const { children } = props;
-      const text = typeof children === 'string' ? children : '';
+      const text = typeof children === "string" ? children : "";
 
-      // Special styling for hero subtitle
-      if (text.includes('清洁服务 · 手艺人服务')) {
-        return <p className="text-xl md:text-2xl text-center text-primary-100 mb-4">{children}</p>;
+      if (text.includes("Complete property services under one roof")) {
+        return <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12">{children}</p>;
       }
 
-      // CTA paragraph
-      if (text.includes('立即联系我们')) {
-        return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center p-8 bg-gradient-to-r from-primary-50 to-blue-50 rounded-xl shadow-md">
-              <h3 className="text-2xl font-bold mb-4">{children}</h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/about" className="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-                  了解更多
-                </Link>
-              </div>
-            </div>
-          </div>
-        );
+      if (text.includes("Don't just take our word for it")) {
+        return <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto">{children}</p>;
       }
 
-      // Partner intro paragraph
-      if (text.includes('我们与多家房地产公司')) {
-        return <p className="text-center text-gray-600 mt-6 text-lg">{children}</p>;
+      if (text.includes("Trusted by leading real estate agencies")) {
+        return <p className="text-lg text-gray-600 text-center mb-8">{children}</p>;
       }
 
-      return <p className="text-gray-700 mb-4">{children}</p>;
+      if (text.includes("We have established long-term partnerships")) {
+        return <p className="text-center text-gray-600 mt-6">{children}</p>;
+      }
+
+      return <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>;
     },
-    // Render lists
+
+    // Lists
     ul: (props: any) => {
-      const childText = props?.children?.[0]?.props?.children || '';
-      // Check if it's the partners list
-      if (typeof childText === 'string' && childText.includes('Belle Property')) {
+      const childText = props?.children?.[0]?.props?.children || "";
+
+      // Partners grid
+      if (typeof childText === "string" && childText.includes("Belle Property")) {
         return (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               {props.children}
             </div>
           </div>
         );
       }
-      // Check if it's the "Why Choose Us" list
-      if (typeof childText === 'string' && childText.includes('丰富经验')) {
+
+      // Stats grid
+      if (typeof childText === "string" && childText.includes("500+")) {
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {props.children}
             </div>
           </div>
         );
       }
+
       return <ul className="space-y-2 mb-6">{props.children}</ul>;
     },
+
+    // List items
     li: (props: any) => {
       const { children } = props;
-      const childString = typeof children === 'string' ? children : '';
+      const childString = typeof children === "string" ? children : "";
 
-      // Check if it's a partner item
-      if (childString.includes('Belle Property') || childString.includes('Harcourts') || childString.includes('DG') || childString.includes('其他合作伙伴')) {
+      // Partner cards
+      if (["Belle Property", "Harcourts", "Ray White", "LJ Hooker", "Raine & Horne", "Professionals", "Stockwell"].some(p => childString.includes(p)) || childString.includes("DG")) {
+        const icons: Record<string, string> = {
+          "Belle": "🏠", "Harcourts": "🏢", "DG": "🔷", "Ray White": "⬜",
+          "LJ Hooker": "🔴", "Raine & Horne": "🟡", "Professionals": "🔵", "Stockwell": "⭐"
+        };
+        const icon = Object.keys(icons).find(key => childString.includes(key));
         return (
-          <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center">
-            <div className="text-4xl mb-2">
-              {childString.includes('Belle') && '🏠'}
-              {childString.includes('Harcourts') && '🏢'}
-              {childString.includes('DG') && '🔷'}
-              {childString.includes('其他') && '⭐'}
+          <div className="group flex flex-col items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+            <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
+              {icon ? icons[icon] : "🏢"}
             </div>
-            <div className="font-semibold text-gray-900">{children}</div>
+            <p className="text-gray-700 font-semibold text-center text-sm">{children}</p>
           </div>
         );
       }
 
-      // Check if it's a "Why Choose Us" feature
-      if (childString.includes('丰富经验') || childString.includes('专业团队') || childString.includes('全方位服务') ||
-          childString.includes('客户至上') || childString.includes('快速响应') || childString.includes('合理定价')) {
-        return (
-          <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-primary-500">
-            <div className="flex items-start gap-3">
-              <div className="text-2xl">✅</div>
-              <div>{children}</div>
+      // Stats cards
+      if (childString.includes("500+") || childString.includes("100%") || childString.includes("2000+") || childString.includes("10+")) {
+        const stats = [
+          { label: "500+", icon: "📊", title: "Leads per Week (AVG)" },
+          { label: "100%", icon: "⭐", title: "Satisfaction Rate" },
+          { label: "2000+", icon: "👥", title: "Customers Each Year" },
+          { label: "10+", icon: "🏆", title: "Years of Experience" }
+        ];
+        const stat = stats.find(s => childString.includes(s.label));
+        if (stat) {
+          return (
+            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-4xl mb-4">{stat.icon}</div>
+              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-2">{stat.label}</div>
+              <p className="text-gray-600 font-medium">{stat.title}</p>
             </div>
-          </div>
-        );
+          );
+        }
       }
 
+      // Regular list items
       return (
         <li className="flex items-start text-gray-700">
-          <svg className="w-5 h-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+          <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
           <span>{children}</span>
         </li>
       );
     },
-    // Render blockquotes for testimonials
+
+    // Blockquotes for testimonials
     blockquote: (props: any) => {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-xl p-8 relative hover:shadow-lg transition-all border border-primary-100">
-            <div className="absolute -top-4 left-8">
-              <svg className="w-10 h-10 text-primary-500 fill-current" viewBox="0 0 32 32">
-                <path d="M10 8v-6l-10 10 10 10v-6c8 0 14 2 18 6-2-8-8-14-18-14z" />
-              </svg>
-            </div>
-            <div className="pt-4 pl-8 text-gray-700 italic text-lg leading-relaxed">{props.children}</div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-xl">
+            <div className="absolute top-8 left-8 text-8xl text-blue-200 font-serif leading-none">"</div>
+            <div className="relative z-10 pl-8 text-gray-800 italic text-xl leading-relaxed">{props.children}</div>
           </div>
         </div>
       );
     },
-    // Render horizontal rules
-    hr: (props: any) => {
-      return <hr className="my-16 border-t-2 border-gray-200" />;
-    },
-    // Render strong
+
+    // Strong text
     strong: (props: any) => {
-      const childText = typeof props?.children === 'string' ? props.children : '';
-      // Check if it's the customer satisfaction rating
-      if (childText.includes('客户满意度：100%')) {
+      const childText = typeof props?.children === "string" ? props.children : "";
+
+      if (childText === "Our Services:") {
+        return <strong className="font-bold text-gray-900 block text-lg mb-3">{props.children}</strong>;
+      }
+
+      if (childText === "Why Choose Evershine?") {
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6 text-center border-2 border-yellow-200">
-              <div className="text-4xl mb-2">⭐</div>
-              <div className="text-2xl font-bold text-yellow-700">{props.children}</div>
-            </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+            <h3 className="text-3xl font-bold text-gray-900">{props.children}</h3>
           </div>
         );
       }
-      // Check if it's "服务项目：" label
-      if (childText.includes('服务项目：')) {
-        return <strong className="font-bold text-gray-900 block text-lg mb-3">{props.children}</strong>;
-      }
+
       return <strong className="font-bold text-gray-900">{props.children}</strong>;
     },
+
+    // Links/Buttons
     a: (props: any) => {
       const href = props?.url ?? props?.href ?? "";
       const text = getText(props?.children);
       const isButton = buttonLabels.has(text);
       const className = isButton
-        ? "inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-        : "text-primary-600 hover:text-primary-700 underline";
-      const isExternal = href.startsWith("http");
+        ? "inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg"
+        : "text-blue-600 hover:text-blue-700 underline font-medium";
+
+      const isExternal = href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
 
       if (href.startsWith("/")) {
         return (
-          <Link href={href} className={className}>
-            {props.children}
-          </Link>
+          <div className="text-center mt-6">
+            <Link href={href} className={className}>
+              {props.children}
+              {isButton && (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              )}
+            </Link>
+          </div>
         );
       }
 
@@ -300,6 +326,11 @@ export default function ClientPage(props: ClientPageProps) {
           {props.children}
         </a>
       );
+    },
+
+    // Horizontal rules
+    hr: (props: any) => {
+      return <hr className="my-16 border-t-2 border-gray-200" />;
     },
   };
 
