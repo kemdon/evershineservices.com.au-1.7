@@ -1,5 +1,7 @@
-import Link from "next/link";
 import React from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -7,18 +9,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        style={{
-          margin: "3rem",
-        }}
-      >
-        <header>
-          <Link href="/">Home</Link>
-          {" | "}
-          <Link href="/posts">Posts</Link>
-        </header>
-        <main>{children}</main>
+    <html lang="zh-CN">
+      <body>
+        <Navbar />
+        <main className="pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );
