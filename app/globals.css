@@ -3,7 +3,43 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: #0091FF;
+    --color-secondary: #8BC34A;
+    --color-dark: #333333;
+    --color-darker: #252525;
+    --color-light-bg: #f9f9f9;
+  }
+
   body {
-    @apply m-0 min-h-screen bg-gray-50 text-gray-900;
+    @apply m-0 min-h-screen bg-white text-gray-900;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:brightness-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:brightness-95;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
   }
 }

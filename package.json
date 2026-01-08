@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
+    "dev": "node scripts/dev.js",
+    "dev:raw": "tinacms dev -c \"next dev\"",
+    "stop": "node scripts/stop-dev.js",
+    "restart": "pnpm stop && pnpm dev",
+    "ports:kill": "node scripts/kill-ports.js 3000 4001 9000",
     "build": "tinacms build && next build",
-    "build-local": "tinacms build --local --skip-indexing --skip-cloud-checks && next build",
+    "build-local": "node scripts/build-local.js",
     "start": "tinacms build && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:build": "node scripts/test-e2e-build.js"
   },
   "dependencies": {
     "next": "^14.2.35",
@@ -17,12 +25,21 @@
     "typescript": "5.5.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
     "@tinacms/cli": "^1.11.0",
     "@types/node": "^22.18.12",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.23",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.33",
+    "jsdom": "^27.4.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "vitest": "^4.0.16"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "brandName": "Evershine Services",
+  "footerAbout": "Adelaide's most trusted property services provider. With over 10 years of professional experience, we offer quality cleaning, handyman, and gardening services.",
+  "navigation": {
+    "links": [
+      { "label": "Home", "href": "/" },
+      { "label": "Why Us", "href": "/about" },
+      { "label": "Cleaning", "href": "/cleaning" },
+      { "label": "Handyman", "href": "/handyman" },
+      { "label": "Gardening", "href": "/gardening" },
+      { "label": "Blog", "href": "/posts" }
+    ],
+    "cta": { "label": "Contact Us", "href": "/about" }
+  },
+  "contact": {
+    "address": "239A Wright Street, Adelaide SA 5000",
+    "phone": "1300 525 598",
+    "email": "info@evershineservices.com.au",
+    "businessHours": "Mon - Sat: 7:00 AM - 6:00 PM\nSunday: Closed"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/EvershineServicesADL/",
+    "instagram": "https://www.instagram.com/evershineservicesadl/"
+  },
+  "footerNote": ""
+}

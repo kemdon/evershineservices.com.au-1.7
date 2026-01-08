@@ -19,6 +19,15 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Port Conflicts / Restarting Dev
+
+Tina runs a datalayer server on port `9000`. If you see a "port 9000 busy" error, use:
+
+```
+pnpm stop
+pnpm dev
+```
+
 ### Building the Starter Locally (Using the hosted content API)
 
 Replace the `.env.example`, with `.env`
@@ -33,6 +42,22 @@ Build the project:
 
 ```bash
 pnpm build
+```
+
+### Local Build (No Tina Cloud)
+
+If Tina Cloud schema is out of sync, build using the local GraphQL server:
+
+```bash
+pnpm build-local
+```
+
+### Tests
+
+```bash
+pnpm test
+pnpm test:e2e
+pnpm test:e2e:build
 ```
 
 ## Learn More

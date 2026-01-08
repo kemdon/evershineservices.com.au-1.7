@@ -7,6 +7,17 @@ export default {
   path: "content/post",
   fields: [
     {
+      type: "image",
+      label: "Featured Image",
+      name: "featuredImage",
+    },
+    {
+      type: "string",
+      label: "Excerpt",
+      name: "excerpt",
+      ui: { component: "textarea" },
+    },
+    {
       type: "string",
       label: "Title",
       name: "title",
